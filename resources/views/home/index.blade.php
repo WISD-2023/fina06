@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('首頁') }}
+            <img src="img/1.jpg" alt="Descriptive Text">
         </h2>
     </x-slot>
 
