@@ -16,8 +16,15 @@
                         {{ __('首頁') }}
                     </x-nav-link>
                 </div>
-            </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
+                        {{ __('購物車') }}
+                    </x-nav-link>
+                </div>
+
+
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
