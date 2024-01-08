@@ -21,7 +21,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 
-Route::get('/dashboard', function () {
+Route::middleware(['auth:sanctum','verfied'])->get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
