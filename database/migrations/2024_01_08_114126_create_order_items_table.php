@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('remember_token');
+            $table->string('order_id');
+            $table->string('status');
             $table->timestamps();
         });
     }
