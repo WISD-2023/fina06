@@ -18,6 +18,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                        {{ __('商品') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
                         {{ __('購物車') }}
                     </x-nav-link>
@@ -28,6 +34,7 @@
                         {{ __('訂單') }}
                     </x-nav-link>
                 </div>
+
             </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">

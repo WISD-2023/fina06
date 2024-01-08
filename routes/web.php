@@ -3,11 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
 use App\Http\Controllers\ProductController;
-
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\OrderController;
+
 
 
 /*
@@ -32,7 +31,7 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('products',[ProductController::class,'index'])->name('products.index');
+Route::get('/products',[ProductController::class,'index'])->name('product.index');
 
 
 
