@@ -3,7 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +20,14 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',function (){
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
+Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+
+Route::get('/dashboard', function () {
+
     return view('dashboard');
 })->name('dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');

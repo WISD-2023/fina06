@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <img src="img/1.jpg" alt="Descriptive Text">
+            <img src="img/1.jpg" width="100%" height="100%" alt="Descriptive Text">
         </h2>
     </x-slot>
 
