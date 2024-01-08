@@ -4,8 +4,11 @@ use App\Admin\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\OrderController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +21,26 @@ use App\Http\Controllers\OrderController;
 |
 */
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 Route::get('/admin/users', [UserController::class, 'index']);
 
-Route::middleware(['auth:sanctum','verfied'])->get('/dashboard', function () {
+Route::get('/dashboard', function () {
+
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/products',[ProductController::class,'index'])->name('product.index');
+
+
+
+
+//Route::get('/', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
