@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\OrderController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+Route::get('/admin/users', [UserController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
