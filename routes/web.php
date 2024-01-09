@@ -28,6 +28,7 @@ Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 Route::get('/admin/users', [UserController::class, 'index']);
 
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -36,8 +37,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 //商品相關路由
 Route::pattern('id' , '[0-9]+');
-Route::get('/products',[ProductController::class,'index'])->name('product.index');
-Route::get('/products/{product}',[ProductController::class, 'show'])->name('product.show');
+Route::get('/product',[ProductController::class,'index'])->name('product.index');
+Route::get('/product/{product}',[ProductController::class, 'show'])->name('product.show');
 
 
 
