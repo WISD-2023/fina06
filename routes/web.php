@@ -23,6 +23,7 @@ use App\Http\Controllers\OrderController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/home',[HomeController::class, 'login_index'])->middleware('auth')->name('home.login_index');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 Route::get('/admin/users', [UserController::class, 'index']);
