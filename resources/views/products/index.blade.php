@@ -40,4 +40,13 @@
             </div>
         @endforelse
     </div>
+    <input type="hidden" name="amount" value="1">
+@endsection
+
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function () {
+            @include('products.add2cart')
+        });
+    </script>
 @endsection

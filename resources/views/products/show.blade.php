@@ -17,11 +17,11 @@
 
                         <div class="input-group-append">
                             <span class="input-group-text">數量：</span>
-                            <input type="text" class="form-control input-sm" value="1">
+                            <input type="text" class="form-control input-sm" name="amount" value="1">
                             <span class="input-group-text">件</span>
                         </div>
                         <div class="input-group-append">
-                            <button class="btn btn-primary btn-add-to-cart">加入購物車</button>
+                            <a href="{{route('product.index')}}" class="btn btn-primary">加入購物車</a>
                         </div>
                     </div>
                     {!! $product->description !!}
@@ -31,4 +31,10 @@
     </div>
 @endsection
 
-
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function () {
+            @include('product.add2cart')
+        });
+    </script>
+@endsection
