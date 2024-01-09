@@ -1,38 +1,36 @@
-<x-app-layout>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>商品列表</title>
-        <!-- 可以加入 CSS 檔案連結 -->
-    </head>
-    <body>
-
-    <div class="container">
-        <h1>商品列表</h1>
-        <table>
-            <thead>
-            <tr>
-                <th>商品名稱</th>
-                <th>價格</th>
-                <th>描述</th>
-                <!-- 根據需要添加更多欄位 -->
-            </tr>
-            </thead>
-            <tbody>
-{{--            @foreach ($products as $product)--}}
-{{--                <tr>--}}
-{{--                    <td>{{ $product->name }}</td>--}}
-{{--                    <td>{{ $product->price }}</td>--}}
-{{--                    <td>{{ $product->description }}</td>--}}
-{{--                    <!-- 根據需要顯示更多資訊 -->--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
-            </tbody>
-        </table>
+@extends('layouts.app')
+@section('content')
+    <h1>所有餐點</h1>
+    <div class="card-deck">
+        @forelse($products as $product)
+            <div class="card mb-4">
+                <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $product->title }}</h5>
+                </div>
+                <div class="card-footer text-center">
+                    ${{ $product->price }}
+                    <a href="#" class="btn btn-primary">加入購物車</a>
+                </div>
+            </div>
+            @if($loop->iteration % 2 == 0)
+                <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+            @endif
+            @if($loop->iteration % 3 == 0)
+                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+            @endif
+            @if($loop->iteration % 4 == 0)
+                <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+            @endif
+            @if($loop->iteration % 5 == 0)
+                <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+            @endif
+        @empty
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h1 class="card-title">目前無任何商品</h1>
+                </div>
+            </div>
+        @endforelse
     </div>
-
-    </body>
-    </html>
-</x-app-layout>
+@endsection
