@@ -1,5 +1,13 @@
 <?php
 
+
+namespace App\Admin\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+
+
 namespace App\Admin\Controllers;
 
 use App\Product;
@@ -75,3 +83,4 @@ class ProductController extends AdminController
         return $form;
     }
 }
+

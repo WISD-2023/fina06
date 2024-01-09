@@ -21,7 +21,7 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-
+Route::pattern('id' , '[0-9]+');
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home',[HomeController::class, 'login_index'])->middleware('auth')->name('home.login_index');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
@@ -37,9 +37,15 @@ Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
 //商品相關路由
+
+
+Route::get('/products',[ProductController::class,'index'])->name('product.index');
+Route::get('/products/{id}',[ProductController::class, 'show'])->name('product.show');
+
 Route::pattern('id' , '[0-9]+');
 Route::get('/product',[ProductController::class,'index'])->name('product.index');
 Route::get('/product/{product}',[ProductController::class, 'show'])->name('product.show');
+
 
 
 
