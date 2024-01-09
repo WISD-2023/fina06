@@ -38,8 +38,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
-        return view('products.show',compact('product'));
+        $imageUrl =  asset('img/1.jpg') ;
+        return view('products.show',compact('product'),["imageUrl"=>$imageUrl]);
     }
 
     /**

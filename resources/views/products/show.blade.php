@@ -5,7 +5,7 @@
         <div class="card-body product-info">
             <div class="row">
                 <div class="col-sm-5">
-                    <img class="img-fluid" src="{{ $product->image }}" alt="{{ $product->name }}">
+                    <img class="img-fluid" src="{{ $imageUrl }}" alt="{{ $product->name }}">
                 </div>
                 <div class="col-sm-7">
                     <div class="h2">{{ $product->name }}</div>
@@ -31,10 +31,5 @@
     </div>
 @endsection
 
-@section('scriptsAfterJs')
-    <script>
-        $(document).ready(function () {
-            @include('product.add2cart')
-        });
-    </script>
-@endsection
+
+

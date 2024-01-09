@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1>訂單列表<small>（共 {{ count($user->orders) }} 個訂單）</small></h1>
+    <h1>訂單列表</h1>
     @forelse($user->orders as $order)
         <div class="card @if($order->closed) border-secondary @else border-info @endif mb-3">
             <div class="card-header text-white @if($order->closed) bg-secondary @else bg-info @endif">

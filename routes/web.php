@@ -42,7 +42,8 @@ Route::get('/product',[ProductController::class,'index'])->name('product.index')
 Route::get('/product/{product}',[ProductController::class, 'show'])->name('product.show');
 
 
-
+//訂單
+Route::get('/order',[OrderController::class,'index'])->name('order.index');
 //Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');

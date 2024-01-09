@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h1>所有餐點</h1>
     <div class="card-deck">
         @forelse($products as $product)
@@ -43,10 +44,3 @@
     <input type="hidden" name="amount" value="1">
 @endsection
 
-@section('scriptsAfterJs')
-    <script>
-        $(document).ready(function () {
-            @include('products.add2cart')
-        });
-    </script>
-@endsection
