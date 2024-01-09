@@ -4,14 +4,18 @@
     <div class="card-deck">
         @forelse($products as $product)
             <div class="card mb-4">
-                <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">
+                <a href="product/{{$product->id}}">
+                    <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}">
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <h5 class="card-title">
+                        <a href="product/{{ $product->id}}">{{$product->name}}}</a>
+                    </h5>
                 </div>
 
-                <div class="card-footer text-center">
+                <div class="card-footer ">
                     ${{ $product->price }}
-                    <a href="{{route('product.index')}}" class="btn btn-primary addToCartButton">加入購物車</a>
+                    <a href="{{route('product.index')}}" class="btn btn-primary">加入購物車</a>
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $product->name)
+@section('name', $product->name)
 @section('content')
     <div class="card">
         <div class="card-body product-info">
@@ -27,4 +27,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function () {
+            @include('product.add2cart')
+        });
+    </script>
 @endsection
