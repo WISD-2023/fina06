@@ -4,15 +4,18 @@
     <div class="card-deck">
         @forelse($products as $product)
             <div class="card mb-4">
-                <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->title }}">
+                <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $product->title }}</h5>
+                    <h5 class="card-title">{{ $product->name }}</h5>
                 </div>
+
                 <div class="card-footer text-center">
                     ${{ $product->price }}
-                    <a href="#" class="btn btn-primary">加入購物車</a>
+                    <a href="{{route('product.index')}}" class="btn btn-primary addToCartButton">加入購物車</a>
                 </div>
             </div>
+
+
             @if($loop->iteration % 2 == 0)
                 <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
             @endif

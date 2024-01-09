@@ -32,15 +32,18 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/products',[ProductController::class,'index'])->name('product.index');
 
+//商品相關路由
+Route::pattern('id' , '[0-9]+');
+Route::get('/products',[ProductController::class,'index'])->name('product.index');
+Route::get('/products/{product}',[ProductController::class, 'show'])->name('product.show');
 
 
 
 //Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
-
+//身分驗正
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
