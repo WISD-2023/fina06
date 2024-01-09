@@ -27,6 +27,7 @@ Route::get('/cart', [CartItemController::class, 'index'])->name('cart.index');
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 Route::get('/admin/users', [UserController::class, 'index']);
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
