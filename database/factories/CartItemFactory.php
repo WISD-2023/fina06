@@ -17,7 +17,7 @@ class CartItemFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'product_id' => rand(1,100),
         ];
     }
 }

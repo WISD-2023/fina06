@@ -26,6 +26,16 @@
                     </div>
                     {!! $product->description !!}
                 </div>
+                <form action="{{route("cart_items.store")}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                    </button>
+                </form>
             </div>
         </div>
     </div>

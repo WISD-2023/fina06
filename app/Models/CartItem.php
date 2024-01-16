@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class Cart extends Model
 {
@@ -12,9 +15,9 @@ class Cart extends Model
     protected $table = 'carts';
 
     protected $fillable = [
-        'users_id',
+
         'products_id',
-        'quantity',
+
     ];
 
     public function user()
@@ -26,4 +29,13 @@ class Cart extends Model
     {
         $this->hasMany(Product::class);
     }
+
+
+
+
+
+
+
+
+
 }

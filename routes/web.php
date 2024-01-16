@@ -44,6 +44,17 @@ Route::get('/product/{product}',[ProductController::class, 'show'])->name('produ
 
 //訂單
 Route::get('/order',[OrderController::class,'index'])->name('order.index');
+
+//購物車
+Route::group(['middleware' => 'user'], function () {
+    Route::get('cart_items', [App\Http\Controllers\CartItemController::class, 'index'])->name("cart_items.index");
+    Route::post('cart_items/{product}/store', [App\Http\Controllers\CartItemController::class, 'store'])->name("cart_items.store");
+    Route::get('cart_items/{cart_item}/edit', [App\Http\Controllers\CartItemController::class, 'edit'])->name("cart_items.edit");
+    Route::patch('cart_items/{cart_item}', [App\Http\Controllers\CartItemController::class, 'update'])->name("cart_items.update");
+    Route::delete('cart_items/{cart_item}', [App\Http\Controllers\CartItemController::class, 'destroy'])->name("cart_items.destroy");
+});
+//Route::resource('cartItem', CartItemController::class);
+//Route::resource('orders', OrderController::class);
 //Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
