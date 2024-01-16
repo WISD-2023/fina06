@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# 系統畫面
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ◆會員 首頁
+<a href="https://imgur.com/FXSG5A0"><img src="https://i.imgur.com/FXSG5A0.jpg" title="source: imgur.com" /></a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ◆會員查看商品資訊
+<a href="https://imgur.com/9F4a8VX"><img src="https://i.imgur.com/9F4a8VX.jpg" title="source: imgur.com" /></a>
+## ◆會員查看商品內容
+<a href="https://imgur.com/ljWdVzx"><img src="https://i.imgur.com/ljWdVzx.jpg" title="source: imgur.com" /></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## ◆管理員 會員控制
+<a href="https://imgur.com/N50u98b"><img src="https://i.imgur.com/N50u98b.jpg" title="source: imgur.com" /></a>
+## ◆管理員 商品新增
+<a href="https://imgur.com/bufIWeh"><img src="https://i.imgur.com/bufIWeh.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/yJlpsOs"><img src="https://i.imgur.com/yJlpsOs.jpg" title="source: imgur.com" /></a>
+## ◆管理員 商品修改
+<a href="https://imgur.com/qjTw242"><img src="https://i.imgur.com/qjTw242.jpg" title="source: imgur.com" /></a>
+## ◆管理員 商品刪除
+<a href="https://imgur.com/N0ihkzx"><img src="https://i.imgur.com/N0ihkzx.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/5Zs7oLu"><img src="https://i.imgur.com/5Zs7oLu.jpg" title="source: imgur.com" /></a>
+# 系統名稱及作用
+點餐系統
+- 可以在上點餐
+# 系統的主要功能與負責的同學
+3B032062 陳逸達
+3B032063 林昱均
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Route::get('/product',[ProductController::class,'index'])->name('product.index');
+- Route::get('/product/{product}',[ProductController::class, 'show'])->name('product.show');
+- Route::get('/',function (){
+return view('product.index');
+});
+- Route::get('/product/index',function (){
+return view('product.index');
+})->name('product.index');
+- Auth::routes();
+## ERD
+<a href="https://imgur.com/pHHDta6"><img src="https://i.imgur.com/pHHDta6.png" title="source: imgur.com" /></a>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 關聯式綱要圖
+<a href="https://imgur.com/KF5tbBd"><img src="https://i.imgur.com/KF5tbBd.png" title="source: imgur.com" /></a>
 
-## Laravel Sponsors
+## 資料表欄位設計
+<a href="https://imgur.com/eZnG3FY"><img src="https://i.imgur.com/eZnG3FY.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/JTtDpWl"><img src="https://i.imgur.com/JTtDpWl.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/jY2WrcP"><img src="https://i.imgur.com/jY2WrcP.png" title="source: imgur.com" /></a>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 使用套件
+- laravel/breeze:使用者登入登出，資料驗證
+- encore/laravel-admin：網站後台建立
+## 系統復原步驟
+1. 複製 git@github.com:WISD-2023/final-06.git
 
-### Premium Partners
+   打開 cmder，進入www，輸入git clone git@github.com:WISD-2023/final-06.git
+2. cmder輸入以下命令，復原專案
+    - composer install
+    - composer run-script post-root-package-install
+    - composer run-script post-create-project-cmd 
+    - npm install
+    - npm run build
+3. 修改.env檔案
+    - DB_CONNECTION=mysql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=33060
+    - DB_DATABASE=final06
+    - DB_USERNAME=root
+    - DB_PASSWORD=root
+4. 復原DB/建立資料庫
+    - php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 系統開發人員與工作分配
+- 3B032062 陳逸達：路由設計、商品前台顯示、某一商品資訊、管理人員新增修改刪除
+- 3B032063 林昱均：資料表設計、商品新增修改刪除、首頁
